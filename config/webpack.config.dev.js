@@ -1,3 +1,4 @@
+const webpack = require('webpack')
 const path = require('path')
 const fs = require('fs')
 const HtmlWebpackPlugin = require('html-webpack-plugin') 
@@ -51,11 +52,14 @@ module.exports = {
         filename: '[name].min.js'
     },
     devServer: {
-        contentBase: devPath
+        contentBase: devPath,
+        hot: true,                  // 模块热替换（react-hot-loader）
+        historyApiFallback: true,  
+        inline: true,  
     },
     module: {
         rules: [
-            { test: /\.(js|jsx)$/, use: [{loader: 'babel-loader'}], include: srcRoot },
+            { test: /\.(js|jsx)$/, use: [{loader: 'babel-loader'}, {loader: 'eslint-loader'}], include: srcRoot },
             { test: /\.css$/, use: ['style-loader', 'css-loader'], include: srcRoot },
             { test: /\.scss$/, use: ['style-loader', 'css-loader', 'sass-loader', {
                 // 全局使用sass定义的变量，方法等（无需再在使用等地方引入）...
@@ -72,6 +76,8 @@ module.exports = {
         extensions: ['.js', '.jsx']
     },
     plugins: [
-        ...htmlArray
+        ...htmlArray,
+        new webpack.NamedModulesPlugin(),
+        new webpack.HotModuleReplacementPlugin()
     ]
 }
