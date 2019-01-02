@@ -1,16 +1,15 @@
 import { ADD_TODO, CHANGE_TAB } from './../actions/actionTypes'
 
 const initState = {
-    num: 1,
+    num: 12,
     tabs: [
-        { name: '首页', key: 'home' },
+        { name: '首页2', key: 'home' },
         { name: '订单', key: 'order' },
         { name: '我的', key: 'my' },
     ],
     curIndex: 0,
 }
 
-// reducer
 const tabReducer = (state = initState, action) => {
     switch(action.type) {
         case ADD_TODO: 
@@ -22,7 +21,6 @@ const tabReducer = (state = initState, action) => {
     }
 }
 
-// action
 const addTodo1 = (state, action) => {
     const num1 = state.num
     const num2 = action.obj.num

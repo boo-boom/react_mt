@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
 import { changeTab } from './../actions/tabAction'
 import './style.scss'
 
@@ -29,6 +30,12 @@ class TabBar extends React.Component {
             </div>
         )
     }
+}
+
+TabBar.propTypes = {
+    dispatch: PropTypes.func,
+    tabs: PropTypes.array,
+    curIndex: PropTypes.number
 }
 
 export default connect(

@@ -1,33 +1,12 @@
 import React from 'react'
-import { connect } from 'react-redux'
-import PropTypes from 'prop-types'
-import { addTodo } from './../actions/tabAction'
-import TabBar from './../TabBar'
+import { hot } from 'react-hot-loader'
+import Container from './Container'
 
-class Main extends React.Component {
-    click() {
-        const obj = {
-            num: 111
-        }
-        this.props.dispatch(addTodo(obj))
-    }
+class Index extends React.Component {
     render() {
-        const props = this.props
-        return (
-            <div>
-                <div onClick={()=>this.click()}>{props.num}</div>
-                <TabBar/>
-            </div>
-        )
+        return <Container/>
     }
 }
 
-Main.propTypes = {
-    test: PropTypes.object
-}
-
-export default connect(
-    state => ({
-        num: state.tabReducer.num
-    })
-)(Main);
+// 模块热替换 不刷新页面只更新修改的组件
+export default hot(module)(Index);
