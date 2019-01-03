@@ -14,7 +14,7 @@ class TabBar extends React.Component {
     renderItems() {
         const tabs = this.props.tabs
         const curIndex = this.props.curIndex
-        return tabs.map((item, index) => {
+        return tabs && tabs.map((item, index) => {
             return (
                 <div className="tab-item" key={`${item.name}-${index}`} onClick={()=>this.fnChangeTab(index)}>
                     <div className={`tab-icon ${item.key} ${curIndex===index?'active':''}`}></div>
