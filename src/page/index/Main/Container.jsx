@@ -23,7 +23,6 @@ class Main extends React.Component {
 }
 
 Main.propTypes = {
-    dispatch: PropTypes.func,
     test: PropTypes.object
 }
 

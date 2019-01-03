@@ -77,7 +77,6 @@ module.exports = {
     },
     plugins: [
         ...htmlArray,
-        new webpack.NamedModulesPlugin(),
         new webpack.HotModuleReplacementPlugin()
     ]
 }

@@ -1,9 +1,9 @@
 import { ADD_TODO, CHANGE_TAB } from './../actions/actionTypes'
 
 const initState = {
-    num: 12,
+    num: 1,
     tabs: [
-        { name: '首页2', key: 'home' },
+        { name: '首页', key: 'home' },
         { name: '订单', key: 'order' },
         { name: '我的', key: 'my' },
     ],

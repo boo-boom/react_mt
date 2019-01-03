@@ -5,8 +5,8 @@ import { changeTab } from './../actions/tabAction'
 import './style.scss'
 
 class TabBar extends React.Component {
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
     }
     fnChangeTab(index) {
         this.props.dispatch(changeTab(index))
