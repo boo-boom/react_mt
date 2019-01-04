@@ -1,7 +1,8 @@
-import { createStore } from 'redux'
+import { createStore, applyMiddleware } from 'redux'
+import thunk from 'redux-thunk'
 import reducers from './reducers'
 
-const store = createStore(reducers)
+const store = createStore(reducers, applyMiddleware(thunk))
 
 // redux也要设置热替换
 if (module.hot) {

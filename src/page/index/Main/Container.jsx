@@ -1,7 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
-import axios from 'axios'
 import { addTodo, getBanners } from '../actions/mainAction'
 // import TabBar from '../TabBar'
 
@@ -9,22 +8,25 @@ class Main extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            curImg: 'qwewqe'
+            test: 'qwewqe'
         }
         this.handleClick = this.handleClick.bind(this)
     }
     handleClick() {
         this.props.dispatch(addTodo(1))
-        axios.get('http://music.mendada.cn/api/banner').then(res => {
-            this.props.dispatch(getBanners(res.data.banners))
-        })
+        this.props.dispatch(getBanners())
     }
     render() {
         const props = this.props
         return (
             <div>
-                {this.state.curImg}
+                {this.state.test}
                 <div onClick={this.handleClick}>{props.num}</div>
+                {
+                    props.banners&&props.banners.length
+                    ? <img src={props.banners.length&&props.banners[Math.min(props.num, 5)].picUrl} style={{height:"50px"}} alt=""/> 
+                    : null
+                }
                 {/* <TabBar/> */}
             </div>
         )
@@ -37,6 +39,7 @@ Main.propTypes = {
 
 export default connect(
     state => ({
-        num: state.mainReducer.num
+        num: state.mainReducer.num,
+        banners: state.mainReducer.banners,
     })
 )(Main);
