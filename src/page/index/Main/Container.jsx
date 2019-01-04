@@ -12,6 +12,19 @@ class Main extends React.Component {
         }
         this.handleClick = this.handleClick.bind(this)
     }
+    UNSAFE_componentWillMount() {
+        // 如果不指定this时，onLoadPage中this会指向window
+        window.addEventListener('scroll', this.onLoadPage.bind(this))
+    }
+    onLoadPage() {
+        const clientHeight = document.documentElement.clientHeight
+        const scrollHeight = document.body.scrollHeight
+        const scrollTop = document.documentElement.scrollTop
+        const proLoadDis = 30
+        if((scrollTop + clientHeight) >= (scrollHeight - proLoadDis)) {
+            console.log('到底了...')
+        }
+    }
     handleClick() {
         this.props.dispatch(addTodo(1))
         this.props.dispatch(getBanners())
@@ -19,7 +32,7 @@ class Main extends React.Component {
     render() {
         const props = this.props
         return (
-            <div>
+            <div style={{height:"2000px"}}>
                 {this.state.test}
                 <div onClick={this.handleClick}>{props.num}</div>
                 {
