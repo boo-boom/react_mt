@@ -54,8 +54,7 @@ module.exports = {
     devServer: {
         contentBase: devPath,
         hot: true,                  // 模块热替换（react-hot-loader）
-        historyApiFallback: true,  
-        inline: true,  
+        
     },
     module: {
         rules: [
