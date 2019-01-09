@@ -1,4 +1,5 @@
 import React from 'react'
+import { hot } from 'react-hot-loader'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import { addTodo, getBanners } from '../actions/mainAction'
@@ -56,4 +57,4 @@ export default connect(
         num: state.mainReducer.num,
         banners: state.mainReducer.banners,
     })
-)(Main);
+)(hot(module)(Main));
