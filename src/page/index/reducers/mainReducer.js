@@ -1,7 +1,7 @@
 import { ADD_TODO, GET_BANNERS } from './../actions/actionTypes'
 
 const initState = {
-    num: 1,
+    num: 12,
     banners: []
 }
 
@@ -19,7 +19,7 @@ const banners = (state, action) => {
 
 const mainReducer = (state = initState, action) => {
     switch(action.type) {
-        case ADD_TODO: 
+        case ADD_TODO:
             return addTodo(state, action)
         case GET_BANNERS:
             return banners(state, action)

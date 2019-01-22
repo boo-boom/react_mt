@@ -39,7 +39,7 @@ class Main extends React.Component {
                 <div onClick={this.handleClick}>{props.num}</div>
                 {
                     props.banners&&props.banners.length
-                    ? <img src={props.banners.length&&props.banners[Math.min(props.num, 5)].picUrl} style={{height:"50px"}} alt=""/> 
+                    ? <img src={props.banners.length&&props.banners[Math.min(props.num, 5)].picUrl} style={{height:"50px"}} alt=""/>
                     : null
                 }
                 {/* <TabBar/> */}
