@@ -1,7 +1,7 @@
 import { ADD_TODO, GET_BANNERS } from './../actions/actionTypes'
 
 const initState = {
-    num: 12,
+    num: 1,
     banners: []
 }
 

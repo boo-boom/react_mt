@@ -22,5 +22,5 @@ ReactDom.render(
 
 // redux修改时触发热替换
 if (module.hot) {
-  module.hot.accept(Main)
+  module.hot.accept()
 }
