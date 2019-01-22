@@ -3,8 +3,8 @@ import tabReducer from './tabReducer'
 import mainReducer from './mainReducer'
 
 const reducers = combineReducers({
-    tabReducer,
-    mainReducer,
+  tabReducer,
+  mainReducer,
 })
 
 export default reducers;
