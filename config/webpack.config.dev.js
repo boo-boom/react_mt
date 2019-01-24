@@ -49,7 +49,7 @@ module.exports = {
   entry: entryMap,
   output: {
     path: devPath,
-    filename: '[name].min.js'
+    filename: '[name].[hash:8].js'
   },
   devServer: {
     contentBase: devPath,
