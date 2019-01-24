@@ -1,33 +1,33 @@
-const webpack = require('webpack')
-const path = require('path')
-const fs = require('fs')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const srcRoot = path.resolve(__dirname, '../src')
-const devPath = path.resolve(__dirname, '../dev')
-const pageDir = path.resolve(srcRoot, 'page')
-const mainFile = 'index.js'
+const webpack = require('webpack');
+const path = require('path');
+const fs = require('fs');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const srcRoot = path.resolve(__dirname, '../src');
+const devPath = path.resolve(__dirname, '../dev');
+const pageDir = path.resolve(srcRoot, 'page');
+const mainFile = 'index.js';
 
 // 设置多入口
 const getEntry = () => {
-  const entryMap = {}
+  const entryMap = {};
   fs.readdirSync(pageDir).forEach(pathName => {
-    const fullPathName = path.resolve(pageDir, pathName)
-    const stat = fs.statSync(fullPathName)
-    const fileName = path.resolve(fullPathName, mainFile)
+    const fullPathName = path.resolve(pageDir, pathName);
+    const stat = fs.statSync(fullPathName);
+    const fileName = path.resolve(fullPathName, mainFile);
     // 是文件夹且路径存在
     if (stat.isDirectory() && fs.existsSync(fileName)) {
-      entryMap[pathName] = fileName
+      entryMap[pathName] = fileName;
     }
-  })
-  return entryMap
-}
+  });
+  return entryMap;
+};
 
 // 设置多html
 const getHtmlArray = (entryMap) => {
-  const htmlArr = []
+  const htmlArr = [];
   Object.keys(entryMap).forEach(key => {
-    const fullPathName = path.resolve(pageDir, key)
-    const fileName = path.resolve(fullPathName, `${key}.html`)
+    const fullPathName = path.resolve(pageDir, key);
+    const fileName = path.resolve(fullPathName, `${key}.html`);
     if (fs.existsSync(fileName)) {
       htmlArr.push(
         new HtmlWebpackPlugin({
@@ -35,14 +35,14 @@ const getHtmlArray = (entryMap) => {
           template: fileName,
           chunks: [key]
         })
-      )
+      );
     }
-  })
-  return htmlArr
-}
+  });
+  return htmlArr;
+};
 
-const entryMap = getEntry()
-const htmlArray = getHtmlArray(entryMap)
+const entryMap = getEntry();
+const htmlArray = getHtmlArray(entryMap);
 
 module.exports = {
   mode: 'development',
@@ -87,4 +87,4 @@ module.exports = {
     ...htmlArray,
     new webpack.HotModuleReplacementPlugin()
   ]
-}
+};

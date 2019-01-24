@@ -5,6 +5,6 @@ import store from './store'
 import Main from './Main'
 
 ReactDom.render(
-    <Provider store={store}><Main/></Provider>,
-    document.getElementById('root')
+  <Provider store={store}><Main/></Provider>,
+  document.getElementById('root')
 )

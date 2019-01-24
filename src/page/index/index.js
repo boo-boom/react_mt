@@ -15,7 +15,3 @@ ReactDom.render(
   document.getElementById('root')
 )
 
-// redux修改时触发热替换
-if (module.hot) {
-  module.hot.accept()
-}

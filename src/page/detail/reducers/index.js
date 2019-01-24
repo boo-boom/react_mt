@@ -2,7 +2,7 @@ import { combineReducers } from 'redux'
 import tabReducer from './testReducer'
 
 const reducers = combineReducers({
-    tabReducer
+  tabReducer
 })
 
 export default reducers
