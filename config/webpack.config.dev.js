@@ -32,8 +32,8 @@ const getHtmlArray = (entryMap) => {
       htmlArr.push(
         new HtmlWebpackPlugin({
           filename: `${key}.html`,
-          template: fileName,
-          chunks: [key]
+          template: fileName,       // 指定的模板文件来生成特定的html文件
+          chunks: [key],            // 指定html引用的js
         })
       );
     }
