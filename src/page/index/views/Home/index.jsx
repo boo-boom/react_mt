@@ -1,21 +1,17 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { getTopics } from './reducer';
+import connect from './../../store/connect';
+import { action } from './reducer'
 
+@connect('home', action)
 class Home extends Component {
   componentWillMount() {
     this.props.getTopics(123)
   }
   render() {
     return (
-      <div>Home{this.props.topics}</div>
+      <div>Home{this.props.test1}</div>
     )
   }
 }
 
-export default connect(
-  state => ({
-    topics: state.home.test1
-  }),
-  { getTopics }
-)(Home);
+export default Home;
