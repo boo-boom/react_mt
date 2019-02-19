@@ -1,4 +1,4 @@
-const webpack = require('webpack');
+// const webpack = require('webpack');
 const path = require('path');
 const fs = require('fs');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -54,7 +54,7 @@ module.exports = {
   devServer: {
     contentBase: devPath,
     // 模块热替换（react-hot-loader）
-    hot: true,
+    // hot: true,
     // 服务启动后自动打开浏览器
     open: true,
     // 当应用警告/出错时，在页面上出现黑色弹层展示错误信息
@@ -85,6 +85,6 @@ module.exports = {
   },
   plugins: [
     ...htmlArray,
-    new webpack.HotModuleReplacementPlugin()
+    // new webpack.HotModuleReplacementPlugin()
   ]
 };

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import connect from './../../store/connect';
-import { action } from './reducer'
+import { action } from './reducer';
 
 @connect('home', action)
 class Home extends Component {
