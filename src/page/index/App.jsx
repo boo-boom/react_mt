@@ -1,8 +1,9 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 import { Provider } from 'react-redux'
 // import { hot } from 'react-hot-loader'
 import store from './store'
-import Home from './views/Home'
+import Routes from './route'
+
 
 class App extends Component {
   constructor() {
@@ -11,9 +12,7 @@ class App extends Component {
   render() {
     return (
       <Provider store={store}>
-        <Fragment>
-          <Home/>
-        </Fragment>
+        <Routes/>
       </Provider>
     )
   }

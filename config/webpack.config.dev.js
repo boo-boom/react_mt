@@ -57,6 +57,8 @@ module.exports = {
     // hot: true,
     // 服务启动后自动打开浏览器
     open: true,
+    // 解决Cannot GET /???的问题
+    historyApiFallback: true,
     // 当应用警告/出错时，在页面上出现黑色弹层展示错误信息
     overlay: {
       warnings: true,
