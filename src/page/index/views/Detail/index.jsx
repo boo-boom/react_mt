@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import connect from './../../store/connect';
 import { action } from './reducer';
 
@@ -6,10 +7,14 @@ import { action } from './reducer';
 class Detail extends Component {
   componentWillMount() {
     this.props.getInfo()
+    console.log(this.props)
   }
   render() {
     return (
-      <div>Detail{this.props.test2}</div>
+      <div>
+        <p>Detail{this.props.test2}</p>
+        <Link to="/">返回</Link>
+      </div>
     )
   }
 }

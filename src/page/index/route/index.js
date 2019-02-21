@@ -1,7 +1,17 @@
 import React, { Fragment } from 'react'
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
-import Home from './../views/Home'
-import Detail from './../views/Detail'
+import Loadable from 'react-loadable'
+import Loading from './Loading'
+
+const Home = Loadable({
+  loader: () => import('./../views/Home'),
+  loading: Loading
+})
+
+const Detail = Loadable({
+  loader: () => import('./../views/Detail'),
+  loading: Loading
+})
 
 const Routes = () => (
   <BrowserRouter>
@@ -9,7 +19,7 @@ const Routes = () => (
       <Switch>
         <Route exact path="/" component={Home} />
         <Route path="/home" component={Home} />
-        <Route exact path="/detail" component={Detail} />
+        <Route path="/detail/:id" component={Detail} />
         <Redirect to="/"></Redirect>
       </Switch>
     </Fragment>

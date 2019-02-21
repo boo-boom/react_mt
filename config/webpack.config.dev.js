@@ -49,7 +49,8 @@ module.exports = {
   entry: entryMap,
   output: {
     path: devPath,
-    filename: '[name].[hash:8].js'
+    filename: '[name].[hash:8].js',
+    publicPath: '/'                 // 指定资源目录为当前根目录，否则多层路由将无法载入资源
   },
   devServer: {
     contentBase: devPath,

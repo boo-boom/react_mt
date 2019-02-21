@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import connect from './../../store/connect';
 import { action } from './reducer';
 
@@ -9,7 +10,10 @@ class Home extends Component {
   }
   render() {
     return (
-      <div>Home{this.props.test1}</div>
+      <div>
+        <div style={{color:'red'}}>Home{this.props.test1}</div>
+        <Link to="/detail/123">打开详情</Link>
+      </div>
     )
   }
 }
