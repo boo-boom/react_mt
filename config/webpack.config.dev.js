@@ -84,7 +84,11 @@ module.exports = {
   },
   resolve: {
     // 自动扩展文件后缀名
-    extensions: ['.js', '.jsx']
+    extensions: ['.js', '.jsx'],
+    // 别名
+    alias: {
+      '@index': path.resolve(__dirname, './../src/page/index')
+    }
   },
   plugins: [
     ...htmlArray,
