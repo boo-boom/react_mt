@@ -87,6 +87,7 @@ module.exports = {
     extensions: ['.js', '.jsx'],
     // 别名
     alias: {
+      '@utils': path.resolve(__dirname, './../src/utils'),
       '@index': path.resolve(__dirname, './../src/page/index')
     }
   },

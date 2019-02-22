@@ -13,6 +13,7 @@ class Detail extends Component {
     return (
       <div>
         <p>Detail{this.props.test2}</p>
+        <p>params:{this.props.match.params.id}</p>
         <Link to="/">返回</Link>
       </div>
     )
