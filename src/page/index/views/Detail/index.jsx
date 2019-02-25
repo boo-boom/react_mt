@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import connect from './../../store/connect';
-import { action } from './reducer';
+import { connect } from 'react-redux';
+import { getInfo } from './reducer';
 
-@connect('detail', action)
+@connect(
+  state => ({test2:state.home.test2}),
+  { getInfo }
+)
 class Detail extends Component {
   componentWillMount() {
     this.props.getInfo()

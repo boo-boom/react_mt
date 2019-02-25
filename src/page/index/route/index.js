@@ -2,9 +2,9 @@ import React, { Fragment } from 'react'
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
 import Loadable from './Loadable'
 
-const Home = Loadable(() => import('@index/views/Home'))
-const Detail = Loadable(() => import('@index/views/Detail'))
-const My = Loadable(() => import('@index/views/My'))
+const Home = Loadable(() => import(/* webpackChunkName:"home" */'@index/views/Home'))
+const Detail = Loadable(() => import(/* webpackChunkName:"detail" */'@index/views/Detail'))
+const My = Loadable(() => import(/* webpackChunkName:"my" */'@index/views/My'))
 
 const Routes = () => (
   <BrowserRouter>

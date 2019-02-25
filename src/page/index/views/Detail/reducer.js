@@ -16,13 +16,11 @@ export function detail(state = stateDefault, action) {
 }
 
 // action
-export const action = {
-  getInfo: () => {
-    return dispatch => {
-      dispatch({
-        type: ACTION_TEST,
-        test2: 'aaaaaa'
-      })
-    }
+export function getInfo() {
+  return dispatch => {
+    dispatch({
+      type: ACTION_TEST,
+      test2: 'aaaaaa'
+    })
   }
-};
+}
