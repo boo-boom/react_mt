@@ -3,7 +3,8 @@
 # dependencies
 /node_modules
 /.vscode
-# /dev
+/dev
+/dist
 
 # testing
 /coverage

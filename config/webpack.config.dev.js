@@ -2,6 +2,7 @@
 const path = require('path');
 const fs = require('fs');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const srcRoot = path.resolve(__dirname, '../src');
 const devPath = path.resolve(__dirname, '../dev');
 const pageDir = path.resolve(srcRoot, 'page');
@@ -68,18 +69,32 @@ module.exports = {
   },
   module: {
     rules: [
-      { test: /\.(js|jsx)$/, use: [{ loader: 'babel-loader' }, { loader: 'eslint-loader' }], include: srcRoot },
-      { test: /\.css$/, use: ['style-loader', 'css-loader'], include: srcRoot },
       {
-        test: /\.scss$/, use: ['style-loader', 'css-loader', 'sass-loader', {
+        test: /\.(js|jsx)$/,
+        use: [{ loader: 'babel-loader' }, { loader: 'eslint-loader' }],
+        include: srcRoot
+      },
+      {
+        test: /\.css$/,
+        use: [MiniCssExtractPlugin.loader, 'css-loader'],
+        include: srcRoot
+      },
+      {
+        test: /\.scss$/,
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader', {
           // 全局使用sass定义的变量，方法等（无需再在使用等地方引入）...
           loader: 'sass-resources-loader',
           options: {
             resources: srcRoot + '/common/style/resources.scss'
           }
-        }], include: srcRoot
+        }],
+        include: srcRoot
       },
-      { test: /\.(png|jpg|jpeg)$/, use: 'url-loader?limit=8192', include: srcRoot },
+      {
+        test: /\.(png|jpg|jpeg)$/,
+        use: 'url-loader?limit=8192?name=./images/[name].[hash].[ext]',
+        include: srcRoot
+      },
     ]
   },
   resolve: {
@@ -87,8 +102,10 @@ module.exports = {
     extensions: ['.js', '.jsx'],
     // 别名
     alias: {
-      '@utils': path.resolve(__dirname, './../src/utils'),
-      '@index': path.resolve(__dirname, './../src/page/index')
+      '@utils': path.resolve(__dirname, '../src/utils'),
+      '@index': path.resolve(__dirname, '../src/page/index'),
+      '@static': path.resolve(__dirname, '../src/static'),
+      '@common': path.resolve(__dirname, '../src/common')
     }
   },
   optimization: {
@@ -104,7 +121,11 @@ module.exports = {
     }
   },
   plugins: [
+    // new webpack.NamedModulesPlugin(),
+    // new webpack.HotModuleReplacementPlugin(),
+    new MiniCssExtractPlugin({
+      filename: "[name].css"
+    }),
     ...htmlArray,
-    // new webpack.HotModuleReplacementPlugin()
   ]
 };

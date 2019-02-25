@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import connect from './../../store/connect';
 import { action } from './reducer';
+import img from '@static/img/1.jpg';
+import './style.scss';
 
 @connect('home', action)
 class Home extends Component {
@@ -24,6 +26,7 @@ class Home extends Component {
   render() {
     return (
       <div>
+        <img src={img} alt=""/>
         <div style={{ color: 'red' }}>Home{this.props.test1}</div>
         <Link to="/detail/123">html跳转+动态路由</Link><br />
         <p onClick={this.goDetail}>js跳转</p>
