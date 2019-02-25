@@ -35,7 +35,7 @@ const getHtmlArray = (entryMap) => {
           title: 'dododo',
           filename: `${key}.html`,
           template: fileName,                 // 指定的模板文件来生成特定的html文件
-          chunks: ['common', key],            // 指定html引用的js：splitChunks中抽离的common.min.js在模版中引用
+          chunks: ['common', key],            // 指定html引用的js：splitChunks中抽离的common.js在模版中引用
           favicon: path.resolve(__dirname, '../src/static/favicon.ico'),
         })
       );
@@ -52,7 +52,7 @@ module.exports = {
   entry: entryMap,
   output: {
     path: devPath,
-    filename: '[name].min.js',      // [hash:8]
+    filename: '[name].js',      // [hash:8]
     publicPath: '/'                 // 指定资源目录为当前根目录，否则多层路由将无法载入资源
   },
   devServer: {
@@ -111,7 +111,7 @@ module.exports = {
     }
   },
   optimization: {
-    // 抽离node_modules中用到到代码到common.min.js中
+    // 抽离node_modules中用到到代码到common.js中
     splitChunks: {
       cacheGroups: {
         common: {
