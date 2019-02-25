@@ -1,0 +1,9 @@
+// 1. js计算html上等fontsize
+// 2. 使用scss换算px为rem
+// 3. 再使用的地方调用px2rem(px)
+@function px2rem($px) {
+    $rem: 37.5px;
+    @return ($px / $rem) + rem;
+}
+
+$red: red;

@@ -4,6 +4,7 @@
 /node_modules
 /.vscode
 /dev
+/dist
 
 # testing
 /coverage
