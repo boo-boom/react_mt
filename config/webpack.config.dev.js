@@ -32,9 +32,11 @@ const getHtmlArray = (entryMap) => {
     if (fs.existsSync(fileName)) {
       htmlArr.push(
         new HtmlWebpackPlugin({
+          title: 'dododo',
           filename: `${key}.html`,
           template: fileName,                 // 指定的模板文件来生成特定的html文件
           chunks: ['common', key],            // 指定html引用的js：splitChunks中抽离的common.min.js在模版中引用
+          favicon: path.resolve(__dirname, '../src/static/favicon.ico'),
         })
       );
     }

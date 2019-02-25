@@ -16,13 +16,11 @@ export function home(state = stateDefault, action) {
 }
 
 // action
-export const action = {
-  getTopics: () => {
-    return dispatch => {
-      dispatch({
-        type: ACTION_TEST,
-        test1: 3212
-      })
-    }
+export function getTopics() {
+  return dispatch => {
+    dispatch({
+      type: ACTION_TEST,
+      test1: 3212
+    })
   }
-};
+}
